@@ -1,57 +1,30 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { PanelHeader, PanelTitle, PanelContent } from "@/components/layout/Panel"
 
 export function About() {
   return (
-    <section id="about" className="py-12 md:py-16 space-y-8">
-      <h2 className="text-3xl font-bold tracking-tight">About Me</h2>
-      <div className="md:grid md:grid-cols-2 gap-12 items-start">
+    <>
+      <PanelHeader>
+        <PanelTitle>About</PanelTitle>
+      </PanelHeader>
+      <PanelContent>
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="prose prose-neutral dark:prose-invert"
+          className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground text-sm leading-relaxed"
         >
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            I am a Software Engineer based in Delhi, India, with a passion for building innovative solutions.
+          <p>
+            I am a Software Engineer based in Delhi, India, with a passion for building innovative solutions and intuitive interfaces. Skilled in TypeScript, React, Next.js, and Python. I enjoy working on projects ranging from browser extensions to machine learning experiments and full-stack web applications.
           </p>
-          <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-            Skilled in TypeScript, JavaScript, React, Next.js, and Python. I enjoy working on projects ranging from browser extensions to machine learning experiments and full-stack web applications.
-          </p>
-          <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-             Always exploring new technologies and finding unique ways to solve complex problems.
+          <p className="mt-4">
+            I'm always exploring new technologies and finding unique ways to solve complex problems, keeping a keen eye on the small details that make digital products feel premium and seamless.
           </p>
         </motion.div>
-        
-        <motion.div 
-           initial={{ opacity: 0, x: 20 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.5, delay: 0.2 }}
-           className="mt-8 md:mt-0 space-y-4"
-        >
-           <h3 className="text-xl font-semibold">Connect</h3>
-           <ul className="list-none space-y-2 text-muted-foreground">
-             <li>
-               <a href="mailto:0083pranay@gmail.com" className="hover:text-foreground transition-colors underline underline-offset-4 decoration-muted-foreground/50 hover:decoration-foreground">
-                 0083pranay@gmail.com
-               </a>
-             </li>
-             <li>
-               <a href="https://linkedin.com/in/pranay-vishwakarma/" target="_blank" className="hover:text-foreground transition-colors underline underline-offset-4 decoration-muted-foreground/50 hover:decoration-foreground">
-                 LinkedIn
-               </a>
-             </li>
-             <li>
-               <a href="https://github.com/Pranay0083" target="_blank" className="hover:text-foreground transition-colors underline underline-offset-4 decoration-muted-foreground/50 hover:decoration-foreground">
-                 GitHub
-               </a>
-             </li>
-           </ul>
-        </motion.div>
-      </div>
-    </section>
+      </PanelContent>
+    </>
   )
 }

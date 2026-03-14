@@ -1,63 +1,115 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Download } from "lucide-react"
-import Link from "next/link"
+import { BadgeCheck, MapPin, Briefcase, Mail, Link as LinkIcon, Github, Linkedin, Twitter } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="flex flex-col justify-center py-16 md:py-24 lg:py-32">
-      <div className="space-y-6">
+    <section className="flex flex-col gap-8 pb-12 pt-6">
+      
+      {/* ASCII Art Logo (Simulated shape of CD/CD-inspired block) */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="font-mono text-xs sm:text-sm leading-[1.1] text-muted-foreground whitespace-pre select-none opacity-50 hidden sm:block"
+      >
+{`
+    ___  _  _  ___  __  __
+   / _ \\| \\| |/ _ \\|  \\/  |
+  | (_) | .  | (_) | |\\/| |
+   \\__/_|_|\\_|\\___/|_|  |_|
+`}
+      </motion.div>
+
+      <div className="flex flex-col gap-6">
+        
+        {/* Avatar & Name */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-4"
         >
-          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-sm font-medium text-muted-foreground">Available for new opportunities</span>
+          <div className="relative">
+            <div className="h-20 w-20 rounded-full border border-border bg-muted overflow-hidden flex items-center justify-center">
+               <span className="text-3xl font-semibold">P</span>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-3xl font-semibold tracking-tight flex items-center gap-2">
+              Pranay Vishwakarma
+              <BadgeCheck className="h-6 w-6 text-blue-500 fill-blue-500/20" />
+            </h1>
+            <p className="text-muted-foreground">Software Engineer</p>
+          </div>
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+        {/* Info Grid */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          className="grid gap-px bg-border max-w-lg mt-4"
         >
-          Creating with code. <br />
-          <span className="text-muted-foreground">Small details matter.</span>
-        </motion.h1>
+          <div className="bg-background flex gap-4 p-4 items-center group relative overflow-hidden">
+            <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none" />
+            <Briefcase className="h-5 w-5 text-muted-foreground shrink-0" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 justify-between flex-1 relative z-10">
+              <span className="text-sm font-medium">Role</span>
+              <span className="text-sm text-muted-foreground">Software Engineer</span>
+            </div>
+          </div>
 
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          <div className="bg-background flex gap-4 p-4 items-center group relative overflow-hidden">
+            <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none" />
+            <MapPin className="h-5 w-5 text-muted-foreground shrink-0" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 justify-between flex-1 relative z-10">
+              <span className="text-sm font-medium">Location</span>
+              <span className="text-sm text-muted-foreground block relative">
+                 Delhi, India
+                 <span className="absolute -right-3 top-1/2 -translate-y-1/2 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                 </span>
+              </span>
+            </div>
+          </div>
+
+          <div className="bg-background flex gap-4 p-4 items-center group relative overflow-hidden">
+            <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none" />
+            <Mail className="h-5 w-5 text-muted-foreground shrink-0" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 justify-between flex-1 relative z-10">
+              <span className="text-sm font-medium">Contact</span>
+              <a href="mailto:0083pranay@gmail.com" className="text-sm text-muted-foreground hover:text-foreground hover:underline decoration-muted-foreground/50 transition-colors">0083pranay@gmail.com</a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Social Links Row */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-[600px] text-lg text-muted-foreground md:text-xl"
+          className="flex flex-wrap gap-3 mt-4"
         >
-          I'm Pranay, a Software Engineer based in Delhi, India. I am passionate about finding new ways to solve problems and exploring the world of technology and innovation.
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 pt-4"
-        >
-          <Link 
-            href="#projects"
-            className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-          >
-            View Projects
-          </Link>
-          <a 
-            href="/resume.pdf"
-            target="_blank"
-            className="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-          >
-            <Download className="mr-2 h-4 w-4" />
-            Download CV
+          <a href="#" className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background hover:bg-muted transition-colors text-muted-foreground hover:text-foreground group">
+            <Github className="h-4 w-4" />
+            GitHub
+            <LinkIcon className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all ml-1" />
+          </a>
+          <a href="#" className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background hover:bg-muted transition-colors text-muted-foreground hover:text-foreground group">
+            <Linkedin className="h-4 w-4" />
+            LinkedIn
+            <LinkIcon className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all ml-1" />
+          </a>
+          <a href="#" className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background hover:bg-muted transition-colors text-muted-foreground hover:text-foreground group">
+            <Twitter className="h-4 w-4" />
+            Twitter
+            <LinkIcon className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all ml-1" />
           </a>
         </motion.div>
+
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { PanelHeader, PanelTitle, PanelContent } from "@/components/layout/Panel"
 
 const experiences = [
   {
@@ -49,43 +50,52 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-12 md:py-16 space-y-8">
-      <h2 className="text-3xl font-bold tracking-tight">Experience</h2>
-      <div className="relative border-l border-border md:border-l-0 md:pl-0 pl-6 md:space-y-12">
-        {experiences.map((exp, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative md:grid md:grid-cols-5 gap-4 md:items-baseline mb-12 md:mb-0"
-          >
-           {/* Timeline dot for mobile */}
-           <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border border-primary bg-background md:hidden" />
-           
-            <div className="md:col-span-1 text-sm text-muted-foreground md:text-right font-mono">
-              {exp.period}
-            </div>
-            <div className="md:col-span-4 space-y-2 border-l md:border-l border-transparent md:pl-4 relative">
-               {/* Timeline dot for desktop */}
-               <div className="hidden md:block absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-primary" />
-               
-              <h3 className="text-lg font-semibold">{exp.role} · {exp.company}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-prose">
-                {exp.description}
-              </p>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {exp.tech.map((t) => (
-                  <span key={t} className="inline-flex items-center rounded-md bg-secondary px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">
-                    {t}
-                  </span>
-                ))}
+    <>
+      <PanelHeader>
+        <PanelTitle>Experience</PanelTitle>
+      </PanelHeader>
+      <PanelContent>
+        <div className="relative border-l border-border md:border-l-0 md:pl-0 pl-6 space-y-12">
+          {experiences.map((exp, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="relative md:grid md:grid-cols-4 gap-6 items-start"
+            >
+             {/* Timeline dot for mobile */}
+             <div className="absolute -left-[30px] top-1.5 h-3 w-3 rounded-full border border-border bg-background md:hidden" />
+             
+              <div className="md:col-span-1 text-sm text-muted-foreground font-mono md:text-right pt-0.5">
+                {exp.period}
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+              <div className="md:col-span-3 space-y-3 relative border-border md:pl-6 md:border-l">
+                 {/* Timeline dot for desktop */}
+                 <div className="hidden md:block absolute -left-[5.5px] top-2 h-2.5 w-2.5 rounded-full border border-border bg-background" />
+                 
+                <div>
+                   <h3 className="text-base font-semibold text-foreground">{exp.role}</h3>
+                   <p className="text-sm font-medium text-muted-foreground">{exp.company}</p>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {exp.description}
+                </p>
+                {exp.tech.length > 0 && (
+                   <div className="flex flex-wrap gap-2 pt-1">
+                     {exp.tech.map((t) => (
+                       <span key={t} className="inline-flex items-center rounded-md bg-secondary/50 px-2 py-0.5 text-xs font-mono font-medium text-secondary-foreground">
+                         {t}
+                       </span>
+                     ))}
+                   </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </PanelContent>
+    </>
   )
 }

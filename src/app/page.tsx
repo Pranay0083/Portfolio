@@ -28,10 +28,10 @@ export default function Home() {
     <>
       <Header />
       
-      <main className="w-full max-w-3xl mx-auto pt-14">
+      <main className="w-full max-w-3xl mx-auto">
         
         <Panel id="hero">
-          <PanelContent className="pb-12 pt-12">
+          <PanelContent className="pb-12">
             <Hero />
           </PanelContent>
         </Panel>

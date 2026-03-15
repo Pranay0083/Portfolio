@@ -18,7 +18,7 @@ export function About() {
           className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground text-sm leading-relaxed"
         >
           <p>
-            I am a Software Engineer based in Delhi, India, with a passion for building innovative solutions and intuitive interfaces. Skilled in TypeScript, React, Next.js, and Python. I enjoy working on projects ranging from browser extensions to machine learning experiments and full-stack web applications.
+            I am a Student based in Delhi, India, with a passion for building innovative solutions and intuitive interfaces. I enjoy working on problems into bytes.
           </p>
           <p className="mt-4">
             I'm always exploring new technologies and finding unique ways to solve complex problems, keeping a keen eye on the small details that make digital products feel premium and seamless.

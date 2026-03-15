@@ -16,14 +16,14 @@ const projects = [
   {
     title: "CIFAR-10 experiments",
     description: "Hands-on task involving training and experimenting with a small CNN on a CIFAR-10 subset.",
-    tags: ["Python", "Deep Learning"],
+    tags: ["Python", "Machine Learning"],
     demo: "#",
     repo: "https://github.com/Pranay0083/CIFAR-10-subset-CNN-experiments"
   },
   {
     title: "Video Call Protocol",
     description: "High-performance video calling application using a Custom Video Call Protocol (cvcp://) over raw TCP.",
-    tags: ["JavaScript", "Networking", "TCP"],
+    tags: ["JavaScript", "Networking", "TCP", "Computer Networks"],
     demo: "#",
     repo: "https://github.com/Pranay0083/Video-call-transfer-protocol"
   },
@@ -44,7 +44,7 @@ const projects = [
   {
     title: "Cilo Fashion",
     description: "A premium, interactive web application built to showcase modern fashion collections.",
-    tags: ["TypeScript", "Frontend"],
+    tags: ["TypeScript", "Frontend", "UI/UX"],
     demo: "#",
     repo: "https://github.com/Pranay0083/Cilo-A-Fashion-Collection-Website"
   }

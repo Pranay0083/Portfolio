@@ -6,45 +6,22 @@ import { PanelHeader, PanelTitle, PanelContent } from "@/components/layout/Panel
 const experiences = [
   {
     company: "Succesship",
-    role: "Software Engineer",
-    period: "Jan 2025 - Present",
-    description: "Contributing to software development projects, likely focusing on full-stack development and problem-solving.",
-    tech: ["Software Development", "Problem Solving"]
+    role: "Software Engineer Intern",
+    period: "Jan 2025 - Nov 2025",
+    description: `1. Resolved support issues by identifying and fixing bugs in production and staging environments.
+2. Debugged and optimized existing codebases to improve performance and maintainability.
+3. Developed a new product leveraging Generative AI, contributing to architecture, model integration, and feature development.
+4. Collaborated with cross-functional teams to enhance product functionality and user experience.
+5. Developed and implemented automation scripts to streamline repetitive development tasks and workflows.
+`,
+    tech: ["Software Development", "Problem Solving", "Full-Stack Development", "Database Management", "Agentic AI", "API Development", "Devops"]
   },
   {
-    company: "Newton School of Technology",
-    role: "B.Tech in Computer Science",
-    period: "July 2024 - Present",
-    description: "Pursuing a Bachelor's degree in Computer Science and AI. Maintaing a CGPA of 7.1.",
-    tech: ["Computer Science", "AI", "Data Structures", "Algorithms"]
-  },
-  {
-    company: "Stuzee",
-    role: "Full Stack Developer",
-    period: "Jan 2025 - Present",
-    description: "Developing a comprehensive learning management system to streamline educational processes and enhance student engagement.",
-    tech: ["TypeScript", "Next.js", "React"]
-  },
-  {
-    company: "Open Source",
-    role: "Contributor",
-    period: "2024 - Present",
-    description: "Actively contributing to various open-source projects including browser extensions, system tools, and educational platforms.",
-    tech: ["JavaScript", "Python", "C++"]
-  },
-  {
-    company: "Think Box",
-    role: "Frontend Developer",
-    period: "Late 2024",
-    description: "Built the frontend for an e-learning platform, focusing on user experience and interactive content delivery.",
-    tech: ["JavaScript", "React", "Node.js"]
-  },
-  {
-    company: "University Projects",
-    role: "Student Developer",
-    period: "2023 - 2024",
-    description: "Worked on diverse projects including a CPU scheduler visualizer, contest calendars, and computer vision experiments.",
-    tech: ["TypeScript", "Python", "Algorithms"]
+    company: "Self employed",
+    role: "Freelancer",
+    period: "Feb 2026 - March 2026",
+    description: "Developed high-performance full-stack interfaces that aggregate and visualize large-scale database metrics. Specialized in optimizing SQL queries and backend API responses to ensure data rendering on the frontend.",
+    tech: ["Data Engineering", "API Development", "Full-Stack Development", "Database Management"]
   }
 ]
 
@@ -79,9 +56,20 @@ export function Experience() {
                    <h3 className="text-base font-semibold text-foreground">{exp.role}</h3>
                    <p className="text-sm font-medium text-muted-foreground">{exp.company}</p>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {exp.description}
-                </p>
+                <div className="text-sm text-muted-foreground leading-relaxed">
+                  {exp.description.includes('\n') ? (
+                    <ul className="list-none space-y-2">
+                      {exp.description.trim().split('\n').map((line, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-muted-foreground/40 shrink-0 font-mono text-[10px] pt-1">0{i + 1}</span>
+                          <span>{line.replace(/^\d+\.\s*/, '')}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{exp.description}</p>
+                  )}
+                </div>
                 {exp.tech.length > 0 && (
                    <div className="flex flex-wrap gap-2 pt-1">
                      {exp.tech.map((t) => (

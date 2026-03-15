@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Search, Moon, Sun } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 
@@ -44,17 +44,7 @@ export function Header() {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
-          {/* Mock Search / Command Palette Toggle */}
-          <button
-            className="flex h-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground px-2 text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-            aria-label="Search"
-          >
-            <span className="hidden sm:inline-block mr-2">Search...</span>
-            <kbd className="hidden sm:inline-flex shrink-0 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-              <span className="text-xs">⌘</span>K
-            </kbd>
-            <Search className="h-4 w-4 sm:hidden" />
-          </button>
+
 
           {/* Theme Toggle */}
           {mounted && (
